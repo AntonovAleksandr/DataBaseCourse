@@ -1,0 +1,57 @@
+
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: antonov
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: fk_items_values
+            baseTableName: values_of_form
+            baseColumnNames: item_id
+            referencedTableName: items_of_form
+            referencedColumnNames: id
+            validate: true
+        - addForeignKeyConstraint:
+            constraintName: fk_values_users
+            baseTableName: values_of_form
+            baseColumnNames: person_id
+            referencedTableName: user
+            referencedColumnNames: id
+            validate: true
+        - addForeignKeyConstraint:
+            constraintName: fk_vacancy_users
+            baseTableName: vacancy
+            baseColumnNames: employer_id
+            referencedTableName: user
+            referencedColumnNames: id
+            validate: true
+
+        - addForeignKeyConstraint:
+            constraintName: fk_employments_users
+            baseTableName: employments
+            baseColumnNames: employee_id
+            referencedTableName: user
+            referencedColumnNames: id
+            validate: true
+        - addForeignKeyConstraint:
+            constraintName: fk_employments_vacancy
+            baseTableName: employments
+            baseColumnNames: vacancy_id
+            referencedTableName: vacancy
+            referencedColumnNames: id
+            validate: true
+
+        - addForeignKeyConstraint:
+            constraintName: fk_summary_user
+            baseTableName: summary
+            baseColumnNames: employee_id
+            referencedTableName: user
+            referencedColumnNames: id
+            validate: true
+        - addForeignKeyConstraint:
+            constraintName: fk_summary_vacancy
+            baseTableName: summary
+            baseColumnNames: desired_vacancy_id
+            referencedTableName: vacancy
+            referencedColumnNames: id
+            validate: true
