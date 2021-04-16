@@ -78,6 +78,14 @@ public class MainController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/errors", method = RequestMethod.GET)
+    public ModelAndView errors() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("errors");
+        modelAndView.addObject("empty", false);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/technologies", method = RequestMethod.GET)
     public ModelAndView technologies() {
         ModelAndView modelAndView = new ModelAndView();
